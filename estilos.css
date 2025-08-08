@@ -1,17 +1,60 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Curricular Interactiva</title>
-  <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
-  <h1>Malla Curricular Interactiva</h1>
-  <p>Haz clic en los cursos para marcarlos como aprobados. Los cursos con requisitos se desbloquearán automáticamente.</p>
+body {
+  font-family: sans-serif;
+  background-color: #ffe6f0;
+  padding: 2rem;
+  margin: 0;
+  color: #333;
+}
 
-  <div id="malla-container"></div>
+h1 {
+  color: #d63384;
+  text-align: center;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+#malla-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ciclo {
+  border: 2px solid #f78fb3;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #fff0f5;
+}
+
+.ciclo h2 {
+  color: #c2185b;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.curso {
+  background-color: #fce4ec;
+  border: 2px solid #f48fb1;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.curso.locked {
+  background-color: #f8bbd0;
+  border-color: #f06292;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.curso.approved {
+  background-color: #f06292;
+  color: white;
+  font-weight: bold;
+  text-decoration: line-through;
+}
